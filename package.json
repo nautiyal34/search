@@ -1,0 +1,24 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "description": "Will Manage client and server for search application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "concurrently \"cd client/search-app && npm  install\" \"cd server && npm install\"",
+    "start":  "concurrently \"cd client/search-app && npm  start\" \"cd server && node index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nautiyal34/search.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nautiyal34/search/issues"
+  },
+  "homepage": "https://github.com/nautiyal34/search#readme",
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
