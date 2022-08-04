@@ -2,24 +2,13 @@ const express = require('express')
 const searchMockData = require('./data/searchData.json'); 
 const constants = require("./constants");
 const app = express()
-const port = 3000
+const port = 3001
 
-let successResponse = {
-  "success": true,
-  "data": {}
-}
-
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-
-app.get('/api/search/:key', (req, res) => {
+app.get('/api/search', (req, res) => {
   
-  let processedResult = searchMockData.filter(
-      response => response.name.includes(req.params.key)
-  );
+  let processedResult = searchMockData.filter((value) => {
+      return  value.name.toLowerCase().includes(req.query.search.toLowerCase());
+  })
   if (Array.isArray(processedResult) && processedResult.length) {
     res.statusCode = constants.STATUS_OK;
   }else{
